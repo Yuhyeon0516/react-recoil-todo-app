@@ -8,7 +8,7 @@ function App() {
   const todoList = useRecoilValue(todoListState);
   console.log(todoList);
   return (
-    <div>
+    <div style={{ padding: "20px" }}>
       <TodoItemCreator />
       {todoList.map((todoItem) => (
         <TodoItem key={todoItem.id} item={todoItem} />
