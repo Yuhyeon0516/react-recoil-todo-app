@@ -5,12 +5,17 @@ import { filteredTodoListState } from "./todoAtoms";
 import TodoItem from "./components/TodoItem";
 import TodoListFilters from "./components/TodoListFilters";
 import TodoListStats from "./components/TodoListStats";
+import { currentUserNameQuery } from "./userAtoms";
+import React from "react";
 
 function App() {
   const filteredTodoList = useRecoilValue(filteredTodoListState);
 
   return (
     <div style={{ padding: "20px" }}>
+      <React.Suspense fallback={<div>...loading</div>}>
+        <CurrentUserInfo />
+      </React.Suspense>
       <TodoListStats />
       <TodoListFilters />
       <TodoItemCreator />
@@ -22,3 +27,8 @@ function App() {
 }
 
 export default App;
+
+function CurrentUserInfo() {
+  const userName = useRecoilValue(currentUserNameQuery);
+  return <div>{userName}</div>;
+}
