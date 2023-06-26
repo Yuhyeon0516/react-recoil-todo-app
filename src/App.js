@@ -1,7 +1,12 @@
 import "./App.css";
+import TodoItemCreator from "./components/TodoItemCreator";
 
 function App() {
-  return <div></div>;
+  return (
+    <div>
+      <TodoItemCreator />
+    </div>
+  );
 }
 
 export default App;
